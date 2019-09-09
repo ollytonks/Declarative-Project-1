@@ -25,7 +25,7 @@ feedback as gs =  (matchCount as gs,
                    matchCount (getProps as suit) (getProps gs suit))
                    where ansRanks = getProps as rank
                          guessRanks = getProps gs rank
-                         
+
 matchCount :: Eq a => [a] -> [a] -> Int
 matchCount [] _ = 0
 matchCount _ [] = 0
@@ -62,14 +62,14 @@ initialGuess num = (guess, state)
 
 combinationsOfSize :: Int -> [a] -> [[a]]
 combinationsOfSize 0 _ = [[]]
-combinationsOfSize _ [] = [[]]
+combinationsOfSize _ [] = []
 combinationsOfSize n (x:xs) = (map (x:) (combinationsOfSize (n-1) xs)) ++ (combinationsOfSize n xs)
 
 nextGuess :: ([Card],GameState) -> (Int, Int, Int, Int, Int) -> ([Card],GameState)
-nextGuess (lastGuess, state) lastFeedback = (nextGuess, nextState)
+nextGuess (lastGuess, state) lastFeedback = (nextguess, nextState)
     where
         nextState = delete lastGuess [card | card <- state, feedback card lastGuess == lastFeedback]
-        nextGuess = bestGuess nextState
+        nextguess = if length nextState > 1000 then last nextState else bestGuess nextState
 
 --IMPLEMENT QUICKGUESS
 

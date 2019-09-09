@@ -63,7 +63,7 @@ main = do
     else do
       putStrLn "Usage:  Proj1test c1 ... cn"
       putStrLn "   where c1 ... cn are different cards between 2C and AS"
-      guessTest "4C 9D 8S JH"
+      guessTest "4C 9C 8S JH"
       exitFailure
 
 
@@ -83,7 +83,6 @@ loop answer guess other guesses = do
                         ++ "%"
           else do
             let (guess',other') = nextGuess (guess,other) result
-            putStrLn (show (length other'))
             loop answer guess' other' (guesses+1)
       else do
         putStrLn "Invalid guess"
