@@ -1,5 +1,5 @@
 --  File    : Proj1.hs
---  Author  : Oliver Tonks (835410)
+--  Author  : Oliver Tonks
 --  Purpose : COMP30020 - Declarative Programming - Project 1
 
 -- | This module implements three main functions for the card game
